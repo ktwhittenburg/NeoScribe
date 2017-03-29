@@ -1,4 +1,7 @@
 # README
+# Note for fellow programmers, this tutorial is amazing and pretty much requisite to learn Rails:
+# https://www.railstutorial.org/book/frontmatter
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
