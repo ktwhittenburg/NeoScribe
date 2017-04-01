@@ -1,4 +1,9 @@
 # README
+# Note for fellow programmers, this tutorial is amazing and pretty much requisite to learn Rails:
+# https://www.railstutorial.org/book/frontmatter
+
+Some notes for implementation later: help pages should be static. Not sure about any others, though.
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
