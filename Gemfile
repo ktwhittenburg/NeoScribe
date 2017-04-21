@@ -10,9 +10,12 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 gem 'bootstrap-sass', '~>3.3.6'
-gem 'bcrypt','~> 3.1.11'
+gem 'bcrypt', '~> 3.1.11'
 gem 'pg', group: :production # Added postgres and made it production only.
 gem 'rails_12factor'
+gem 'will_paginate', '~>3.1.5'
+gem 'bootstrap-will_paginate', '~>1.0.0'
+gem 'faker', '~>1.7.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets

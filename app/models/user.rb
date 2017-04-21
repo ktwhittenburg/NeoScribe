@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :projects, dependent: :destroy
+
   #ensures uniqueness
   before_save { self.email = email.downcase }
   #a valid username is <=127 chars long
