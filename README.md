@@ -26,4 +26,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* http://docs.railsbridge.org/intro-to-rails/deploying_to_heroku
+*this got heroku to work
