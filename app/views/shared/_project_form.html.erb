@@ -1,9 +1,9 @@
-<%= form_for(@project) do |f| %>
+<%= form_for([@user, @project) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
       <%= f.label :title %>
       <%= f.text_field :title, class: 'form-control' %>
 	  <%= f.label :synopsis %>
-      <%= f.text_area :title, class: 'form-control' %>
+      <%= f.text_area :synopsis, class: 'form-control' %>
   </div>
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>

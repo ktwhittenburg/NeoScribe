@@ -4,5 +4,9 @@
   <span class="synopsis"><%= project.synopsis %></span>
   <span class="timestamp">
     Created <%= time_ago_in_words(project.created_at) %> ago.
+	<% if current_user?(project.user) %>
+      <%= link_to "delete", user_project_path(@user, project.id), method: :delete,
+                                       data: { confirm: "You sure? This action cannot be undone, and will destroy all trials associated with this project." } %>
+    <% end %>
   </span>
 </li>
