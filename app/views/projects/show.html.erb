@@ -1,5 +1,14 @@
 <% provide(:title, @project.title) %>
-<h1>
-  <%= @project.title %>
-  <%= @project.synopsis %>
-</h1>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= @project.title %>
+	  </h1>
+	  <h3><small>
+	    <%= @project.synopsis %>
+	  </small></h3>
+    </section>
+  </aside>
+</div>

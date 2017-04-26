@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   post '/users/:user_id/projects/new' => 'projects#create'
+  patch '/users/:user_id/projects/:id/edit' => 'projects#update'
+  put '/users/:user_id/projects/:id/edit' => 'projects#update'
   resources :users do
 	resources :projects
   end
