@@ -11,7 +11,6 @@ end
 gem 'rails', '~> 5.0.2'
 gem 'bootstrap-sass', '~>3.3.6'
 gem 'bcrypt', '~> 3.1.11'
-gem 'pg', group: :production # Added postgres and made it production only.
 gem 'rails_12factor'
 gem 'will_paginate', '~>3.1.5'
 gem 'bootstrap-will_paginate', '~>1.0.0'
@@ -24,6 +23,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
+gem 'coffee-script-source', '1.8.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -45,7 +45,11 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   # Use sqlite3 as the database for Active Record
-	gem 'sqlite3', '1.3.13'
+	gem 'sqlite3', '~>1.3.13'
+end
+
+group :production do
+  gem 'pg'
 end
 
 group :development do
