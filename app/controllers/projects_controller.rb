@@ -15,9 +15,9 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build(project_params)
     if @project.save
       flash[:success] = "Project created!"
-      redirect_to root_url
+      redirect_to user_project_path(current_user.id, @project)
     else
-      render 'static_pages/home'
+      render 'new'
     end
   end
   
