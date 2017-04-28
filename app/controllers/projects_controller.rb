@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   
   def show
     @project = Project.find(params[:id])
+	@trials = @project.trials.paginate(page: params[:page])
   end
   
   def new
