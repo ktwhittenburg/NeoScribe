@@ -1,7 +1,7 @@
 <% provide(:title, @project.title) %>
 
 <div class="row">
-  <aside class="col-md-4">
+  <div class="col-md-12">
     <section class="user_info">
       <h1>
         <%= @project.title %>
@@ -10,5 +10,19 @@
 	    <%= @project.synopsis %>
 	  </small></h3>
     </section>
-  </aside>
+<<<<<<< HEAD
+  </div>
 </div>
+=======
+  </div>
+  <div class="col-md-12">
+    <% if @project.trials.any? %>
+      <h3>Trials (<%= @project.trials.count %>)</h3>
+      <ol class="trials">
+        <%= render @trials %>
+      </ol>
+      <%= will_paginate @trials %>
+    <% end %>
+  </div>
+</div>
+>>>>>>> origin/master

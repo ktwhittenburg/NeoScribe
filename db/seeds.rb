@@ -5,8 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-users = User.order(:created_at).take(6)
+
+
+project = Project.find(105)
 50.times do
-  title = Faker::Lorem.sentence(1)
-  users.each { |user| user.projects.create!(title: title) }
+  title = Faker::App.name
+  synopsis = Faker::Hacker.say_something_smart
+  temp = Faker::Lorem.word
+  location = Faker::Address.city
+  project.trials.create!(title: title, synopsis: synopsis, temp: temp, location: location)
 end
