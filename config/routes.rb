@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   patch '/users/:user_id/projects/:id/edit' => 'projects#update'
   put '/users/:user_id/projects/:id/edit' => 'projects#update'
   resources :users do
-	resources :projects
+	resources :projects do
+	  resources :trials
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
