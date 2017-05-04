@@ -14,8 +14,8 @@ before_action :project,   only: [:create, :destroy, :show, :new]
     @trial = project.trials.build(trial_params)
     if @trial.save
       flash[:success] = "Trial created!"
-      #redirect_to project_trial_path(project.id, @trial)
-	  redirect_to user_project_path(current_user.id, project.id)
+      redirect_to project_trial_path(project.id, @trial)
+	  #redirect_to user_project_path(current_user.id, project.id)
     else
       render 'new'
     end
@@ -36,6 +36,7 @@ before_action :project,   only: [:create, :destroy, :show, :new]
   end
   
   def destroy
+    @trial = Trial.find(params[:id])
     @trial.destroy
     flash[:success] = "Trial deleted."
     redirect_to request.referrer || root_url

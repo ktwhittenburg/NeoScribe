@@ -9,10 +9,12 @@
 	  <h3><small>
 	    <%= @project.synopsis %>
 	  </small></h3>
+	  <h2>
+	    <%= link_to "Create a new trial", new_project_trial_path(@project), class: "btn btn-md btn-primary" %>
+      </h2>
     </section>
   </div>
 </div>
-=======
   </div>
   <div class="col-md-12">
     <% if @project.trials.any? %>

@@ -1,0 +1,26 @@
+<% provide(:title, @trial.title) %>
+
+<div class="row">
+  <div class="col-md-12">
+    <section class="project_info">
+      <h1>
+        <%= @trial.title %>
+	  </h1>
+	  <h3>
+	  Synopsis:
+	  <small>
+	    <%= @trial.synopsis %>
+	  </small></h3>
+	  <h3>
+	  Temp: 
+	  <small>
+	    <%= @trial.temp %>
+	  </small></h3>
+	  <h3>
+	  Location: 
+	  <small>
+	    <%= @trial.location %>
+	  </small></h3>
+    </section>
+  </div>
+</div>
