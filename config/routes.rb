@@ -9,13 +9,25 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  #special projects routing
   post '/users/:user_id/projects/new' => 'projects#create'
   patch '/users/:user_id/projects/:id/edit' => 'projects#update'
   put '/users/:user_id/projects/:id/edit' => 'projects#update'
+  #special trials routing
+  post '/projects/:project_id/trials/new' => 'trials#create'
+  
+  
   resources :users do
-	resources :projects do
-	  resources :trials
-	end
+	resources :projects, :name_prefix => "user_"
   end
+  resources :projects do
+    resources :trials, :name_prefix => "project_"
+  end
+  resources :trials
+  #resources :users do
+	#resources :projects do
+	  #resources :trials
+	#end
+  #end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

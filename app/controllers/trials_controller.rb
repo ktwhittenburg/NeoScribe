@@ -1,5 +1,7 @@
 class TrialsController < ApplicationController
 
+before_action :project,   only: [:create, :destroy, :show, :new]
+
   def show
     @trial = Trial.find(params[:id])
   end
@@ -9,10 +11,11 @@ class TrialsController < ApplicationController
   end
 	
   def create
-    @trial = current_user.trials.build(trial_params)
+    @trial = project.trials.build(trial_params)
     if @trial.save
       flash[:success] = "Trial created!"
-      redirect_to user_trial_path(current_user.id, @trial)
+      redirect_to project_trial_path(project.id, @trial)
+	  #redirect_to user_project_path(current_user.id, project.id)
     else
       render 'new'
     end
@@ -33,19 +36,24 @@ class TrialsController < ApplicationController
   end
   
   def destroy
+    @trial = Trial.find(params[:id])
     @trial.destroy
     flash[:success] = "Trial deleted."
     redirect_to request.referrer || root_url
   end
   
     private
+	def project
+		@project = current_user.projects.find_by(params[:id])
+	end
+	
     def correct_user
       @trial = current_user.trial.find_by(id: params[:id])
       redirect_to root_url if @trial.nil?
     end
 
     def trial_params
-      params.require(:trial).permit(:title, :synopsis)
+      params.require(:trial).permit(:title, :synopsis, :temp, :location)
     end
   
   

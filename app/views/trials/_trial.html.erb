@@ -1,7 +1,20 @@
 <li id="trial-<%= trial.id %>">
-  <span class="title"><%= trial.title %></span>
+  <span class="title"><%= link_to trial.title, project_trial_path(@project.id, trial.id) %></span>
   <span class="synopsis"><%= trial.synopsis %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(trial.created_at) %> ago.
+    Created <%= time_ago_in_words(trial.created_at) %> ago.
+	<div class="btn-group btn-group-xs">
+      <button type="button" class="btn btn-default">
+	    <small>
+	      <%= link_to "delete", project_trial_path(@project.id, trial.id), method: :delete,
+                                       data: { confirm: "You sure? This action cannot be undone, and will destroy the trial and all associated data" } %>
+	    </small>
+	  </button>
+	  <button type="button" class="btn btn-default">
+	    <small>
+	      <%= link_to "edit", edit_project_trial_path(@project.id, trial.id) %>
+		</small>
+	  </button>
+	  </div>
   </span>
 </li>

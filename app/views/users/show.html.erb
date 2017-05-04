@@ -7,7 +7,7 @@
         <%= @user.name %>
 	  </h1>
 	  <h2>
-	    <%= link_to "Create a new project", new_user_project_path(current_user), class: "btn btn-md btn-primary" %>
+	    <%= link_to "Create a new project", new_user_project_path(current_user.id), class: "btn btn-md btn-primary" %>
       </h2>
     </section>
   </aside>
