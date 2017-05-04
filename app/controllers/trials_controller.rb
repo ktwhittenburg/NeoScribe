@@ -44,7 +44,7 @@ before_action :project,   only: [:create, :destroy, :show, :new]
   
     private
 	def project
-		@project = current_user.projects.find(params[:id])
+		@project = current_user.projects.find_by(params[:id])
 	end
 	
     def correct_user
