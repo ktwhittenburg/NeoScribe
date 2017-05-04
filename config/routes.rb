@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   put '/users/:user_id/projects/:id/edit' => 'projects#update'
   #special trials routing
   post '/projects/:project_id/trials/new' => 'trials#create'
-  
+  patch '/projects/:project_id/trials/:id/edit' => 'trials#update'
+  put '/projects/:project_id/trials/:id/edit' => 'trials#update'
   
   resources :users do
 	resources :projects, :name_prefix => "user_"

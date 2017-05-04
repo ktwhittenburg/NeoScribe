@@ -29,7 +29,7 @@ before_action :project,   only: [:create, :destroy, :show, :new]
     @trial = Trial.find(params[:id])
     if @trial.update_attributes(trial_params)
       flash[:success] = "Trial updated"
-      redirect_to user_trial_path(current_user.id, @trial)
+      redirect_to project_trial_path(project.id, @trial)
     else
       render 'edit'
     end
