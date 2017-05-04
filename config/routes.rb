@@ -9,9 +9,14 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  #special projects routing
   post '/users/:user_id/projects/new' => 'projects#create'
   patch '/users/:user_id/projects/:id/edit' => 'projects#update'
   put '/users/:user_id/projects/:id/edit' => 'projects#update'
+  #special trials routing
+  post '/projects/:project_id/trials/new' => 'trials#create'
+  
+  
   resources :users do
 	resources :projects, :name_prefix => "user_"
   end

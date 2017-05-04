@@ -1,0 +1,19 @@
+<% provide(:title, 'Create trial') %>
+<h1>Create a trial</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@trial, url: new_project_trial_path(@project)) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :title %>
+        <%= f.text_field :title, class: 'form-control' %>
+	    <%= f.label :synopsis %>
+        <%= f.text_area :synopsis, class: 'form-control' %>
+		<%= f.label :location %>
+        <%= f.text_area :location, class: 'form-control' %>
+		<%= f.label :temp %>
+        <%= f.text_field :temp, class: 'form-control' %>
+      <%= f.submit "Create", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
