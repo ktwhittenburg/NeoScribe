@@ -15,7 +15,6 @@ before_action :project,   only: [:create, :destroy, :show, :new]
     if @trial.save
       flash[:success] = "Trial created!"
       redirect_to project_trial_path(project.id, @trial)
-	  #redirect_to user_project_path(current_user.id, project.id)
     else
       render 'new'
     end
@@ -33,6 +32,9 @@ before_action :project,   only: [:create, :destroy, :show, :new]
     else
       render 'edit'
     end
+  end
+  
+  def run
   end
   
   def destroy
