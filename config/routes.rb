@@ -30,6 +30,9 @@ Rails.application.routes.draw do
 	get 'run', on: :member
 	post 'run', on: :member
 	patch 'run', on: :member
+	resources :behavior, :name_prefix => "trial_"
   end
+  
+  resources :behavior
   
 end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  count: 1
+  trial: one
+
+two:
+  name: MyText
+  count: 1
+  trial: two
