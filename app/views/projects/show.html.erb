@@ -1,5 +1,9 @@
 <% provide(:title, @project.title) %>
-
+<div class="row">
+  <div class="col-md-3">
+  <%= link_to "<- Back to user profile", user_path(current_user.id), class: "btn btn-md btn-primary" %>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-12">
     <section class="user_info">
