@@ -15,6 +15,7 @@ before_action :project,   only: [:create, :destroy, :show, :new]
     if @trial.save
       flash[:success] = "Trial created!"
       redirect_to project_trial_path(project.id, @trial)
+	  #redirect_to user_project_path(current_user.id, project.id)
     else
       render 'new'
     end
@@ -34,9 +35,6 @@ before_action :project,   only: [:create, :destroy, :show, :new]
     end
   end
   
-  def run
-  end
-  
   def destroy
     @trial = Trial.find(params[:id])
     @trial.destroy
@@ -46,7 +44,7 @@ before_action :project,   only: [:create, :destroy, :show, :new]
   
     private
 	def project
-		@project = current_user.projects.find_by(params[:id])
+		@project = current_user.projects.find_by({params[:id]})
 	end
 	
     def correct_user
