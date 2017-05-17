@@ -24,11 +24,15 @@ Rails.application.routes.draw do
   resources :projects do
     resources :trials, :name_prefix => "project_"
   end
-  resources :trials
-  #resources :users do
-	#resources :projects do
-	  #resources :trials
-	#end
+  resources :trials do
+  	get 'run', on: :member
+	post 'run', on: :member
+	patch 'run', on: :member
+	resources :behavior, :name_prefix => "trial_"
+  end
+  
+  resources :behavior
+
   #end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
