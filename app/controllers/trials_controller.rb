@@ -1,8 +1,11 @@
 class TrialsController < ApplicationController
+  #There should be validation that the user is authorized to work with this trial
+  #before allowing the "run" action, but all my attempts throw up a bug
+  #where it "Can't find a project without an ID"
+  before_action :project,   only: [:create, :destroy, :show, :new]
+  before_action :logged_in_user, only: [:create, :destroy, :show, :new, :run]
+  before_action :correct_user,   only: [:create, :destroy, :show, :new]
 
-  #before_action :logged_in_user, only: [:create, :destroy, :show, :new, :run]
-  #before_action :correct_user,   only: [:create, :destroy, :show, :new, :run]
-  before_action :project,   only: [:create, :destroy, :show, :new, :run]
 
   def show
     @trial = Trial.find(params[:id])
@@ -48,12 +51,11 @@ class TrialsController < ApplicationController
   
     private
 	def project
-	  @project = current_user.projects.find_by(params[:id])
+	  @project = Project.find(params[:project_id])
 	end
-	
+
     def correct_user
-      @trial = current_user.trial.find(id: params[:id])
-      redirect_to root_url if @trial.nil?
+      redirect_to root_url unless current_user.id==project.user_id
     end
 
     def trial_params
