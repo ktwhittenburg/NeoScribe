@@ -1,7 +1,7 @@
 class TrialsController < ApplicationController
 
-  before_action :logged_in_user, only: [:create, :destroy, :show, :new, :run]
-  before_action :correct_user,   only: [:create, :destroy, :show, :new, :run]
+  #before_action :logged_in_user, only: [:create, :destroy, :show, :new, :run]
+  #before_action :correct_user,   only: [:create, :destroy, :show, :new, :run]
   before_action :project,   only: [:create, :destroy, :show, :new, :run]
 
   def show

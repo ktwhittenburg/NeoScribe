@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   post '/projects/:project_id/trials/new' => 'trials#create'
   patch '/projects/:project_id/trials/:id/edit' => 'trials#update'
   put '/projects/:project_id/trials/:id/edit' => 'trials#update'
+  #special behaviors routing
+  post '/trials/:trial_id/behavior/new' => 'behavior#create'
+  patch '/trials/:trial_id/behavior/:id/edit' => 'behavior#update'
+  put '/trials/:trial_id/behavior/:id/edit' => 'behavior#update'
   
   resources :users do
 	resources :projects, :name_prefix => "user_"
@@ -32,7 +36,5 @@ Rails.application.routes.draw do
   end
   
   resources :behavior
-
-  #end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
