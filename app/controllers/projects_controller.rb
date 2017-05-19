@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-
   before_action :logged_in_user, only: [:create, :destroy, :show, :new]
   before_action :correct_user,   only: [:create, :destroy, :show, :new]
   
@@ -44,8 +43,8 @@ class ProjectsController < ApplicationController
   
     private
     def correct_user
-      @project = current_user.projects.find_by(params[:id])
-      redirect_to root_url if @project.nil?
+      @project = Project.find(params[:id])
+      redirect_to root_url unless current_user.id==@project.user_id
     end
 
     def project_params
